@@ -50,7 +50,7 @@ function App() {
                 setContrato('');
                 setId('');
         });
-    }
+    };
 
     useEffect(() => {
         listaElenco();
@@ -72,13 +72,13 @@ function App() {
             setOpen(false);
             listaElenco();
         });
-    }
+    };
 
     function deleteJogador(id){
         api.delete(`/elenco/${id}`).then((response) => {
             listaElenco();
         });
-    }
+    };
 
     function openEditar(id,nome,numero,idade,salario,contrato){
         setBotaoAdicionar(false);
@@ -90,7 +90,7 @@ function App() {
         setContrato(contrato);
         setId(id);
         
-    }
+    };
 
     function editarJogador(){
         api.put(`/elenco/${id}`,{nome:nome,numero:numero,idade:idade,salario:salario,contrato:contrato}).then((response) => {
@@ -102,7 +102,7 @@ function App() {
             setId('');
             listaElenco();
         });
-    }
+    };
     return (
         <>
          <Header />
@@ -157,7 +157,7 @@ function App() {
             </Button>
          </Container>
          <Dialog open={open} onClose={closeModal} fullWidth={true} maxWidth="sm">
-            <DialogTitle id="form-dialog-title">Contato</DialogTitle>
+            <DialogTitle id="form-dialog-title">Jogador</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Informe os dados do jogador
@@ -200,7 +200,7 @@ function App() {
                     id="salario"
                     label="Salário"
                     autoComplete="off"
-                    type="text"
+                    type="number"
                     fullWidth
                     value={salario}
                     onChange={e => setSalario(e.target.value)}
@@ -230,6 +230,6 @@ function App() {
          </Dialog>
         </>
     )
-}
+};
 
 export default App;
