@@ -32,6 +32,12 @@ function App() {
     function openModal() {
         setBotaoAdicionar(true);
         setBotaoEditar(false);
+        setNome('');
+        setNumero('');
+        setIdade('');
+        setSalario('');
+        setContrato('');
+        setId('');
         setOpen(true);
     };
 
@@ -63,7 +69,7 @@ function App() {
         const salary = salario;
         const contract = contrato;
 
-        api.post('/elenco', {nome:name, numero:number, age:idade, salary:salario, contract:contrato}).then((response) => {
+        api.post('/elenco', {nome:name, numero:number, idade:age , salario:salary, contrato:contract}).then((response) => {
             setNome('');
             setNumero('');
             setIdade('');
@@ -87,6 +93,7 @@ function App() {
         setNome(nome);
         setNumero(numero);
         setIdade(idade);
+        setSalario(salario);
         setContrato(contrato);
         setId(id);
         
